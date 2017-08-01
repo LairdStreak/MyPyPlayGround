@@ -5,6 +5,7 @@ import requests
 import simplejson as json
 
 def main():
+    """doc string"""
     page = requests.get("https://hacker-news.firebaseio.com/v0/newstories.json?print=pretty")
     jsonData = page.content
     jsonObject = json.loads(jsonData)
