@@ -8,6 +8,7 @@ def main():
     """doc string"""
     page = requests.get("https://hacker-news.firebaseio.com/v0/newstories.json?print=pretty")
     jsonData = page.content
+    print(page.status_code)
     jsonObject = json.loads(jsonData)
 
     # print the keys and values
