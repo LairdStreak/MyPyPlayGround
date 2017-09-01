@@ -8,7 +8,7 @@ from bs4 import BeautifulSoup
 
 def main():
     """function"""
-    page = requests.get("http://www.wowhead.com/")
+    page = requests.get("http://www.wowhead.co/")
     soup = BeautifulSoup(page.content, 'html.parser')
 
     print('Emissary Missions')
