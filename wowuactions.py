@@ -1,18 +1,21 @@
+"""
+Assuming this is file mymodule.py, then this string, being the
+first statement in the file, will become the "mymodule" module's
+docstring when the file is imported.
+"""
 import csv
 import requests
 import pygal
 from pygal.style import DarkSolarizedStyle
 from aucitem import AucItem
 
-
 __author__ = "Laird Streak"
 
-CSV_URL = 'http://www.wowuction.com/us/khazgoroth/alliance/Tools/RealmDataExportGetFileStatic?type=csv&token=wVQ31OiPJkUSpa1tbirwyA2'
-itemIDS = [765,8846,124106,129289,124105,129288]
+CSV_URL = ('http://www.wowuction.com/us/khazgoroth/alliance/Tools/'
+           'RealmDataExportGetFileStatic?type=csv&token=wVQ31OiPJkUSpa1tbirwyA2')
+ITEM_IDENTIFIERS = [765, 8846, 124106, 129289, 124105, 129288]
 
-#ite = AucItem(22,'yo')
-#print(ite.itemID)
-aucitems = []
+AUC_ITEMS = []
 
 with requests.Session() as s:
     download = s.get(CSV_URL)
@@ -21,22 +24,20 @@ with requests.Session() as s:
     my_list = list(cr)
     for row in my_list:
         if row[0] != 'Realm Name':
-            ite = AucItem(int(row[4]),row[5],float(row[14]),float(row[8]))
-            aucitems.append(ite)
-#             print(row)
-    #my_filter = lambda x: x.itemId in itemIDS
-    #myItems = my_filter(aucitems)#filter(lambda x: x.itemID in itemIDS, aucitems)
-   
-    myItems = [
-        item for item in aucitems
-        if item.itemID in itemIDS
-    ]
-    
-    line_chart = pygal.HorizontalBar(style=DarkSolarizedStyle,height=200)
-    line_chart.title = 'Herb Movement'
-    for item in myItems:
-        lable = item.itemName + '' + str(item.Price)
-        line_chart.add(item.itemName,[{'value' : item.changeNum, 'label' : lable}])
-        #print(item.itemName)   
+            ite = AucItem(int(row[4]), row[5], float(row[14]), float(row[8]))
+            AUC_ITEMS.append(ite)
 
-    line_chart.render_in_browser()    
+    myItems = [
+        item for item in AUC_ITEMS
+        if item.itemID in ITEM_IDENTIFIERS
+    ]
+
+    LINE_CHART = pygal.HorizontalBar(style=DarkSolarizedStyle, height=200)
+    LINE_CHART.title = 'Herb Movement'
+    for item in myItems:
+        lable = item.itemname + '' + str(item.price)
+        LINE_CHART.add(item.itemName, [
+            {'value': item.changenum, 'label': lable}])
+        # print(item.itemName)
+
+    LINE_CHART.render_in_browser()

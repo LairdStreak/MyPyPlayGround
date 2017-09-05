@@ -1,8 +1,13 @@
-class AucItem:
+"""
+Docstring
+"""
 
-    def __init__(self,itemId,itemName,change,price):
-        self.itemID = itemId
-        self.itemName = itemName
-        self.changeNum = change
-        self.Price = price
-    
+
+class AucItem(object): # pylint: disable=too-few-public-methods
+    """Class doc str"""
+
+    def __init__(self, itemId, itemName, change, price):
+        self.itemid = itemId
+        self.itemname = itemName
+        self.changenum = change
+        self.price = price
