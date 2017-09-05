@@ -1,13 +1,14 @@
 import csv
 import requests
 import pygal
+from pygal.style import DarkSolarizedStyle
 from aucitem import AucItem
 
 
 __author__ = "Laird Streak"
 
 CSV_URL = 'http://www.wowuction.com/us/khazgoroth/alliance/Tools/RealmDataExportGetFileStatic?type=csv&token=wVQ31OiPJkUSpa1tbirwyA2'
-itemIDS = ['765','8846']
+itemIDS = [765,8846,124106,129289,124105,129288]
 
 #ite = AucItem(22,'yo')
 #print(ite.itemID)
@@ -20,7 +21,7 @@ with requests.Session() as s:
     my_list = list(cr)
     for row in my_list:
         if row[0] != 'Realm Name':
-            ite = AucItem(row[4],row[5])
+            ite = AucItem(int(row[4]),row[5],float(row[14]),float(row[8]))
             aucitems.append(ite)
 #             print(row)
     #my_filter = lambda x: x.itemId in itemIDS
@@ -31,5 +32,11 @@ with requests.Session() as s:
         if item.itemID in itemIDS
     ]
     
+    line_chart = pygal.HorizontalBar(style=DarkSolarizedStyle,height=200)
+    line_chart.title = 'Herb Movement'
     for item in myItems:
-        print(item.itemName)   
+        lable = item.itemName + '' + str(item.Price)
+        line_chart.add(item.itemName,[{'value' : item.changeNum, 'label' : lable}])
+        #print(item.itemName)   
+
+    line_chart.render_in_browser()    
