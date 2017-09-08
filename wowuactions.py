@@ -13,7 +13,15 @@ __author__ = "Laird Streak"
 
 CSV_URL = ('http://www.wowuction.com/us/khazgoroth/alliance/Tools/'
            'RealmDataExportGetFileStatic?type=csv&token=wVQ31OiPJkUSpa1tbirwyA2')
-ITEM_IDENTIFIERS = [765, 8846, 124106, 129289, 124105, 129288]
+ITEM_IDENTIFIERS = [
+124105,
+129288,
+124106,
+129289,
+151565,
+129286,
+151565]
+
 
 AUC_ITEMS = []
 
@@ -29,14 +37,14 @@ with requests.Session() as s:
 
     myItems = [
         item for item in AUC_ITEMS
-        if item.itemID in ITEM_IDENTIFIERS
+        if item.itemid in ITEM_IDENTIFIERS
     ]
 
-    LINE_CHART = pygal.HorizontalBar(style=DarkSolarizedStyle, height=200)
+    LINE_CHART = pygal.HorizontalBar(style=DarkSolarizedStyle)
     LINE_CHART.title = 'Herb Movement'
     for item in myItems:
-        lable = item.itemname + '' + str(item.price)
-        LINE_CHART.add(item.itemName, [
+        lable = item.itemname + '  ' + str(item.price)
+        LINE_CHART.add(item.itemname, [
             {'value': item.changenum, 'label': lable}])
         # print(item.itemName)
 
