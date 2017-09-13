@@ -1,7 +1,7 @@
 import zipfile
 import os
 
-working_folder = 'D:\\Nisekoi\\'
+working_folder = 'D:\\pyDev\\freezing\\'
 
 for dirName, subdirList, fileList in os.walk(working_folder):
     ZipFile = zipfile.ZipFile(dirName + "_.cbz", "w" )
