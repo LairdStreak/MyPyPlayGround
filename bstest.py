@@ -16,3 +16,4 @@ for trow in missionTable.find_all('tr', class_=lambda t: t != 'tiw-heading'):
 
 
 #print(soup.prettify())
+#http://www.wowhead.com/flying#us-khazgoroth-gnomeifix
