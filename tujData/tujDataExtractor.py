@@ -7,7 +7,7 @@ __author__ = "Laird Streak"
 
 def fetch_tuj_data():
     fetch_tuj_category("alchemy")
-    fetch_tuj_category("inscription")
+    #fetch_tuj_category("inscription")
 
 
 def fetch_tuj_category(category):
@@ -24,7 +24,18 @@ def fetch_tuj_category(category):
             tdcells = row.find_all("td")
             lengthArray = len(tdcells)
             if lengthArray > 0:
-                print(tdcells[1].text + " " + tdcells[2].text + " " + tdcells[3].text + " " + tdcells[4].text + " " + tdcells[5].text)
+                current = tdcells[3].text
+                mean = current if tdcells[4].text == "" else tdcells[4].text
+                diff = 1
+                if current is not None:
+                    if mean is not None:
+                        diff = float(current) - float(mean)
+                if diff > 0:
+                    print(tdcells[1].text + " " + tdcells[2].text + " " + tdcells[3].text + " " + tdcells[4].text + " " + tdcells[5].text + "          UP")
+                elif diff == 0:
+                    print(tdcells[1].text + " " + tdcells[2].text + " " + tdcells[3].text + " " + tdcells[4].text + " " + tdcells[5].text + "          Unknown")      
+                else:
+                    print(tdcells[1].text + " " + tdcells[2].text + " " + tdcells[3].text + " " + tdcells[4].text + " " + tdcells[5].text + "          DOWN")    
             else:
                 thcells = row.find_all("th")
                 lenheaders = len(thcells)
