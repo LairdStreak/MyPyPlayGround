@@ -27,9 +27,14 @@ def fetch_tuj_alchemy():
             if lengthArray > 0:
                 print("td")
             else:
-                theader = row.find("th", class_="title")
-                if theader is not None:
-                    print(theader.contents[0])    
+                thcells = row.find_all("th")
+                lenheaders = len(thcells)
+                if lenheaders == 1:
+                   theader = row.find("th", class_="title")
+                   if theader is not None:
+                      print(theader.contents[0])
+                else:
+                    print(thcells[0].text + " " + thcells[1].text)            
         #print(divitem)
 
 if __name__ == '__main__':
