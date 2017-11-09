@@ -8,10 +8,10 @@ __author__ = "Laird Streak"
 
 def fetch_tuj_data():
     #fetch_tuj_category("alchemy")
-    #fetch_tuj_category("inscription")
+    fetch_tuj_category("inscription")
     #fetch_tuj_category("herbalism") battlepets
     #print('here')
-    fetch_tuj_category("battlepets")
+    #fetch_tuj_category("battlepets")
 
 
 def fetch_tuj_category(category):
