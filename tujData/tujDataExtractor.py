@@ -2,16 +2,16 @@
 # -*- coding: utf8 -*-
 from selenium import webdriver
 from bs4 import BeautifulSoup
-import pandas as pd
-import matplotlib.pyplot as plt
+import pygal
 
 __author__ = "Laird Streak"
 
 def fetch_tuj_data():
-    fetch_tuj_category("alchemy")
+    #fetch_tuj_category("alchemy")
     #fetch_tuj_category("inscription")
-    #fetch_tuj_category("herbalism")
+    #fetch_tuj_category("herbalism") battlepets
     #print('here')
+    fetch_tuj_category("battlepets")
 
 
 def fetch_tuj_category(category):
@@ -36,26 +36,35 @@ def fetch_tuj_category(category):
                     if mean is not None:
                         diff = float(current) - float(mean)
                 if diff > 0:
-                    info = {"name" : tdcells[1].text, "available" : tdcells[2].text, "current" : tdcells[3].text, "mean" : tdcells[4].text,"lastseen" : tdcells[5].text,"move" : "UP"}
-                    print(tdcells[1].text + " " + tdcells[2].text + " " + tdcells[3].text + " " + tdcells[4].text + " " + tdcells[5].text + "          UP")
-                elif diff == 0:
-                    info = {"name" : tdcells[1].text, "available" : tdcells[2].text, "current" : tdcells[3].text, "mean" : tdcells[4].text,"lastseen" : tdcells[5].text,"move" : "Unknown"}
-                    print(tdcells[1].text + " " + tdcells[2].text + " " + tdcells[3].text + " " + tdcells[4].text + " " + tdcells[5].text + "          Unknown")      
-                else:
-                    info = {"name" : tdcells[1].text, "available" : tdcells[2].text, "current" : tdcells[3].text, "mean" : tdcells[4].text,"lastseen" : tdcells[5].text,"move" : "UP"}
-                    print(tdcells[1].text + " " + tdcells[2].text + " " + tdcells[3].text + " " + tdcells[4].text + " " + tdcells[5].text + "          DOWN")    
+                    info = {"name" : tdcells[1].text, "available" : tdcells[2].text, "current" : tdcells[3].text, "mean" : tdcells[4].text,"lastseen" : tdcells[5].text,"move" : "UP","diff" : diff}
+                    #print(tdcells[1].text + " " + tdcells[2].text + " " + tdcells[3].text + " " + tdcells[4].text + " " + tdcells[5].text + "          UP")
                     allItems.append(info)
-            else:
-                thcells = row.find_all("th")
-                lenheaders = len(thcells)
-                if lenheaders == 1:
-                   theader = row.find("th", class_="title")
-                   if theader is not None:
-                      print(theader.contents[0])
+                elif diff == 0:
+                    info = {"name" : tdcells[1].text, "available" : tdcells[2].text, "current" : tdcells[3].text, "mean" : tdcells[4].text,"lastseen" : tdcells[5].text,"move" : "Unknown","diff" : diff}
+                    #print(tdcells[1].text + " " + tdcells[2].text + " " + tdcells[3].text + " " + tdcells[4].text + " " + tdcells[5].text + "          Unknown")      
+                    allItems.append(info)
                 else:
-                    print(thcells[0].text + " " + thcells[1].text + " " + thcells[2].text + " " + thcells[3].text + " " + thcells[4].text)            
+                    info = {"name" : tdcells[1].text, "available" : tdcells[2].text, "current" : tdcells[3].text, "mean" : tdcells[4].text,"lastseen" : tdcells[5].text,"move" : "DOWN","diff" : diff}
+                    #print(tdcells[1].text + " " + tdcells[2].text + " " + tdcells[3].text + " " + tdcells[4].text + " " + tdcells[5].text + "          DOWN")    
+                    allItems.append(info)
+            #else:
+            #    thcells = row.find_all("th")
+            #    lenheaders = len(thcells)
+            #    if lenheaders == 1:
+            #       theader = row.find("th", class_="title")
+            #       if theader is not None:
+                      #print(theader.contents[0])
+            #    else:
+                    #print(thcells[0].text + " " + thcells[1].text + " " + thcells[2].text + " " + thcells[3].text + " " + thcells[4].text)            
 
 
+    bar_chart = pygal.HorizontalBar()
+    bar_chart.title = 'Profitability'
+    for infoItem in allItems:
+        #print(infoItem["name"] + " " + str(infoItem["diff"]))
+        bar_chart.add(infoItem["name"],  infoItem["diff"])
+
+    bar_chart.render_in_browser()
     #print(allItems)
     #df = pd.DataFrame.from_records(allItems)
     #df.plot()
