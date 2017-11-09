@@ -2,12 +2,16 @@
 # -*- coding: utf8 -*-
 from selenium import webdriver
 from bs4 import BeautifulSoup
+import pandas as pd
+import matplotlib.pyplot as plt
 
 __author__ = "Laird Streak"
 
 def fetch_tuj_data():
     fetch_tuj_category("alchemy")
     #fetch_tuj_category("inscription")
+    #fetch_tuj_category("herbalism")
+    #print('here')
 
 
 def fetch_tuj_category(category):
@@ -17,6 +21,7 @@ def fetch_tuj_category(category):
     content_data = driver.page_source
     soup = BeautifulSoup(content_data, "html.parser")
     categorydivs = soup.find_all("div", class_="category category-itemlist")
+    allItems = []
     for divitem in categorydivs:
         tableItem = divitem.find_all("table", class_="category category-items")
         tableRows = divitem.find_all("tr")
@@ -31,11 +36,15 @@ def fetch_tuj_category(category):
                     if mean is not None:
                         diff = float(current) - float(mean)
                 if diff > 0:
+                    info = {"name" : tdcells[1].text, "available" : tdcells[2].text, "current" : tdcells[3].text, "mean" : tdcells[4].text,"lastseen" : tdcells[5].text,"move" : "UP"}
                     print(tdcells[1].text + " " + tdcells[2].text + " " + tdcells[3].text + " " + tdcells[4].text + " " + tdcells[5].text + "          UP")
                 elif diff == 0:
+                    info = {"name" : tdcells[1].text, "available" : tdcells[2].text, "current" : tdcells[3].text, "mean" : tdcells[4].text,"lastseen" : tdcells[5].text,"move" : "Unknown"}
                     print(tdcells[1].text + " " + tdcells[2].text + " " + tdcells[3].text + " " + tdcells[4].text + " " + tdcells[5].text + "          Unknown")      
                 else:
+                    info = {"name" : tdcells[1].text, "available" : tdcells[2].text, "current" : tdcells[3].text, "mean" : tdcells[4].text,"lastseen" : tdcells[5].text,"move" : "UP"}
                     print(tdcells[1].text + " " + tdcells[2].text + " " + tdcells[3].text + " " + tdcells[4].text + " " + tdcells[5].text + "          DOWN")    
+                    allItems.append(info)
             else:
                 thcells = row.find_all("th")
                 lenheaders = len(thcells)
@@ -46,6 +55,10 @@ def fetch_tuj_category(category):
                 else:
                     print(thcells[0].text + " " + thcells[1].text + " " + thcells[2].text + " " + thcells[3].text + " " + thcells[4].text)            
 
+
+    #print(allItems)
+    #df = pd.DataFrame.from_records(allItems)
+    #df.plot()
 
 if __name__ == '__main__':
     fetch_tuj_data()
