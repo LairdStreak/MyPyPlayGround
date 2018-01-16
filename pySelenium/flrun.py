@@ -24,4 +24,4 @@ def raw():
     return app.send_static_file("hello.htm")
 
 Debug(app)
-app.run(debug=True)
+app.run(port=1000)

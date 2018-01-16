@@ -99,25 +99,25 @@ class TwitterData():
 
 def main():
 
-    #parser = argparse.ArgumentParser()
-    #parser.add_argument('-u', help="enter user URL")
-    #parser.add_argument('-ht', help="enter hashtag without #")
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-u', help="enter user URL")
+    parser.add_argument('-ht', help="enter hashtag without #")
 
-    #args = parser.parse_args()
+    args = parser.parse_args()
     # args.u =  'https://twitter.com/lairdstreak'
 
-    #if not args.u and not args.ht:
-    #    exit("Please specify user URL to parse data")
+    if not args.u and not args.ht:
+        exit("Please specify user URL to parse data")
     td = TwitterData()
-    #if args.u:
-    username = 'lairdstreak' # args.u.split("/")[-1]
-    try:
-        td.get_auth()
-        td.get_data(username)
-    except:
-        exit("Something went wrong")
+    if args.u:
+       username = args.u.split("/")[-1]
+       try:
+           td.get_auth()
+           td.get_data(username)
+       except:
+           exit("Something went wrong")
 
-   # if args.ht:
-   #     td.extract_trending_data(args.ht)
+    if args.ht:
+        td.extract_trending_data(args.ht)
 
 main()
