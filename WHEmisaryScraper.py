@@ -11,13 +11,7 @@ def main():
     page = requests.get("http://www.wowhead.com/")
     soup = BeautifulSoup(page.content, 'html.parser')
 
-    print('Emissary Missions')
-    missiontable = soup.find("table", {"class": "tiw-group tiw-group-type-misc tiw-group-emissary"})
-    for trow in missiontable.find_all('tr', class_=lambda t: t != 'tiw-heading'):
-        col = trow.find_all('td')
-        tdval = col[0].string.strip()
-        tdval2 = col[1].find_all('a')[0].contents[0]
-        print("Time Remaining {0} Faction {1}".format(tdval, tdval2))
+    emmisary(soup)
 
     print('Blues Latest posts')
     newsdiv = soup.find("div", {"class": "news-recent-blue-posts"})
@@ -29,6 +23,15 @@ def main():
         tdvalue2 = cols[1].text.strip()
         print("Last Updated {0} : Heading {1}".format(tdvalue1, tdvalue2))
 
+
+def emmisary(soup):
+    print('Emissary Missions')
+    missiontable = soup.find("table", {"class": "tiw-group tiw-group-type-misc tiw-group-emissary"})
+    for trow in missiontable.find_all('tr', class_=lambda t: t != 'tiw-heading'):
+        col = trow.find_all('td')
+        tdval = col[0].string.strip()
+        tdval2 = col[1].find_all('a')[0].contents[0]
+        print("Time Remaining {0} Faction {1}".format(tdval, tdval2))
 
 if __name__ == '__main__':
     main()
