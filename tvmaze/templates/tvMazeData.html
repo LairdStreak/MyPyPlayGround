@@ -6,9 +6,26 @@
   </head>
 
   <body>
+      <div class="container">
     {% for record in data %}
     <div><p>{{ record.name }} says: <b>{{ record.releasedate }}</b></p></div>
     {% endfor %}
+    <table class="table table-sm">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Release Date</th>
+      <th scope="col">Summary</th>
+    </tr>
+  </thead>
+  <tbody>
+      {% for record in data %}
+      <tr><td>{{ record.name }}</td><td>{{ record.releasedate }}</td><td>{{ record.summary }}</td></tr>
+      {% endfor %}
+  </tbody>
+</table>
+    </div>
+    <!--
     <div class="container">
       <div class="header">
         <nav>
@@ -55,7 +72,7 @@
         <p>&copy; Company 2015</p>
       </footer>
 
-    </div>
+    </div> -->
    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   </body>
 </html>
