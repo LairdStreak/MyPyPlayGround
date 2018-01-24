@@ -7,8 +7,8 @@ app = Flask(__name__)
 
 @app.route('/')
 def default_route():
-    getData()
-    return render_template('tvMazeData.html')
+    data = main()
+    return render_template('tvMazeData.html',data=data)
 
 def getData():
     main()

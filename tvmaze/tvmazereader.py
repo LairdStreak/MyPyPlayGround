@@ -2,16 +2,19 @@ import requests
 import json
 from pprint import pprint
 
-seriesidlist = ['21845','5495']
+
 
 def main():
+    seriesidlist = ['21845','5495']
     for identity in seriesidlist:
-        infoUri = 'http://api.tvmaze.com/shows/{value}'.format(value=identity)
+#        infoUri = 'http://api.tvmaze.com/shows/{value}'.format(value=identity)
         urlPath = 'http://api.tvmaze.com/shows/{value}/episodes'.format(value=identity)
-        read_seriesInfo(infoUri)
-        read_seriesEpisodes(urlPath)
-        #print(urlPath)
-    #//print("here")
+        response = read_seriesEpisodes(urlPath)
+        return response
+        #pprint(response)
+        #read_seriesInfo(infoUri)
+        #read_seriesEpisodes(urlPath)
+
 
 def read_seriesInfo(uri):
     response = requests.get(uri)
@@ -22,12 +25,19 @@ def read_seriesInfo(uri):
 def read_seriesEpisodes(uri):
     response = requests.get(uri)
     data = json.loads(response.content)
+    content = []
     for record in data:
         name = record['name']
         releasedate = record['airdate']
         summary = record['summary']
         print("{} {} {}".format(name, releasedate, summary))
-
+        info = {
+        "name":  name,
+        "releasedate": releasedate,
+        "summary":  summary,
+        }
+        content.append(info)
+    return content
 
 if __name__ == '__main__':
     main()

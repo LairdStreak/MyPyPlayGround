@@ -6,7 +6,9 @@
   </head>
 
   <body>
-
+    {% for record in data %}
+    <div><p>{{ record.name }} says: <b>{{ record.releasedate }}</b></p></div>
+    {% endfor %}
     <div class="container">
       <div class="header">
         <nav>
