@@ -1,6 +1,5 @@
 from flask import Flask
 from flask import render_template
-from flask_debug import Debug
 from tvmazereader import main
 
 app = Flask(__name__)
@@ -13,6 +12,5 @@ def default_route():
 def getData():
     main()
 
-
-Debug(app)
-app.run(port=1100)
+if __name__ == '__main__':
+    app.run()
