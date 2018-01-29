@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Python Flask Bucket List App</title>
+    <title>Python Flask My Series Info</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   </head>
 
@@ -15,11 +15,13 @@
       <th scope="col">Summary</th>
     </tr>
   </thead>
+  {% for record in data %}
   <tbody>
-      {% for record in data %}
-      <tr><td>{{ record.name }}</td><td>{{ record.releasedate }}</td><td>{{ record.summary }}</td></tr>
+      {% for row in record %}
+      <tr><td>{{ row.name }}</td><td>{{ row.releasedate }}</td><td>{{ row.summary|safe }}</td></tr>
       {% endfor %}
   </tbody>
+  {% endfor %}
 </table>
     </div>
     <!--

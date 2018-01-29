@@ -6,15 +6,24 @@ from pprint import pprint
 
 def main():
     seriesidlist = ['21845','5495']
+    episodes = []
     for identity in seriesidlist:
-#        infoUri = 'http://api.tvmaze.com/shows/{value}'.format(value=identity)
         urlPath = 'http://api.tvmaze.com/shows/{value}/episodes'.format(value=identity)
         response = read_seriesEpisodes(urlPath)
-        return response
+        episodes.append(response)
+    
+    pprint(episodes)
+    return episodes
+
+
+    # infoUri = 'http://api.tvmaze.com/shows/{value}'.format(value=identity)
+    #    urlPath = 'http://api.tvmaze.com/shows/{value}/episodes'.format(value=identity)
+    #    response = read_seriesEpisodes(urlPath)
+    #    return response
         #pprint(response)
         #read_seriesInfo(infoUri)
         #read_seriesEpisodes(urlPath)
-
+    
 
 def read_seriesInfo(uri):
     response = requests.get(uri)
@@ -30,7 +39,6 @@ def read_seriesEpisodes(uri):
         name = record['name']
         releasedate = record['airdate']
         summary = record['summary']
-        print("{} {} {}".format(name, releasedate, summary))
         info = {
         "name":  name,
         "releasedate": releasedate,
