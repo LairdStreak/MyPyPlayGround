@@ -12,7 +12,7 @@ def main():
         response = read_seriesEpisodes(urlPath)
         episodes.append(response)
     
-    pprint(episodes)
+    #pprint(episodes)
     return episodes
 
 
