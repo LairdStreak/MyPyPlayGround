@@ -13,6 +13,9 @@ class App(QWidget):
         self.width = 400
         self.height = 400
         self.initUI()
+        #timer = QTimer()
+        #timer.timeout.connect(self.tick)
+        #timer.start(1000)
 
     def tick(self):
         self.tableWidget.setItem(0,0, QTableWidgetItem("tick -- "))
@@ -21,23 +24,15 @@ class App(QWidget):
     def initUI(self):
         self.setWindowTitle(self.title)
         self.setGeometry(self.left, self.top, self.width, self.height)
- 
         self.createTable()
- 
-        # Add box layout, add table to box layout and add box layout to widget
+         # Add box layout, add table to box layout and add box layout to widget
         self.layout = QVBoxLayout()
         self.layout.addWidget(self.tableWidget) 
         self.setLayout(self.layout) 
- 
         # Show widget
         self.show()
+        self.tick()
 
-        timer = QTimer()
-        timer.timeout.connect(self.tick)
-        timer.start(1000)
-
-   
- 
     def createTable(self):
        # Create table
         self.tableWidget = QTableWidget()
