@@ -13,12 +13,13 @@ class App(QWidget):
         self.width = 400
         self.height = 400
         self.initUI()
-        #timer = QTimer()
-        #timer.timeout.connect(self.tick)
-        #timer.start(1000)
-
+        self.counter = 0
+        # timer
+        self.timer = QTimer(self)
+        self.timer.timeout.connect(self.timeout)  # timeout signal
+        self.timer.start(20)  # updates every second
+        
     def tick(self):
-        self.tableWidget.setItem(0,0, QTableWidgetItem("tick -- "))
         print('tick')
  
     def initUI(self):
@@ -47,8 +48,7 @@ class App(QWidget):
         self.tableWidget.setItem(3,0, QTableWidgetItem("Cell (4,1)"))
         self.tableWidget.setItem(3,1, QTableWidgetItem("Cell (4,2)"))
         self.tableWidget.move(0,0)
- 
-        # table selection change
+         # table selection change
         self.tableWidget.doubleClicked.connect(self.on_click)
  
     @pyqtSlot()
@@ -56,6 +56,13 @@ class App(QWidget):
         print("\n")
         for currentQTableWidgetItem in self.tableWidget.selectedItems():
             print(currentQTableWidgetItem.row(), currentQTableWidgetItem.column(), currentQTableWidgetItem.text())
+
+     # timeout slot
+    @pyqtSlot()
+    def timeout(self):
+        self.counter += 1
+        value = str(self.counter)
+        self.tableWidget.setItem(0,0, QTableWidgetItem(value))
  
 if __name__ == '__main__':
     app = QApplication(sys.argv)
