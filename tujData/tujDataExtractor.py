@@ -23,7 +23,6 @@ def fetch_tuj_category(category):
     categorydivs = soup.find_all("div", class_="category category-itemlist")
     allItems = []
     for divitem in categorydivs:
-        tableItem = divitem.find_all("table", class_="category category-items")
         tableRows = divitem.find_all("tr")
         for row in tableRows:
             tdcells = row.find_all("td")
