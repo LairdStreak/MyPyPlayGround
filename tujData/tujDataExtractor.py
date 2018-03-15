@@ -64,7 +64,8 @@ def fetch_tuj_category(category):
         #print(infoItem["name"] + " " + str(infoItem["diff"]))
         bar_chart.add(infoItem["name"],  infoItem["diff"])
 
-    bar_chart.render_in_browser()
+    # bar_chart.render_in_browser()
+    bar_chart.render_to_file('bar_chart.svg')  
     #print(allItems)
     #df = pd.DataFrame.from_records(allItems)
     #df.plot()
