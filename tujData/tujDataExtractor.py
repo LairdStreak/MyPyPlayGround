@@ -2,7 +2,7 @@
 # -*- coding: utf8 -*-
 from selenium import webdriver
 from bs4 import BeautifulSoup
-import pygal
+# import pygal
 
 __author__ = "Laird Streak"
 
@@ -57,14 +57,19 @@ def fetch_tuj_category(category):
                     #print(thcells[0].text + " " + thcells[1].text + " " + thcells[2].text + " " + thcells[3].text + " " + thcells[4].text)            
 
 
-    bar_chart = pygal.HorizontalBar()
-    bar_chart.title = 'Profitability'
-    for infoItem in allItems:
-        #print(infoItem["name"] + " " + str(infoItem["diff"]))
-        bar_chart.add(infoItem["name"],  infoItem["diff"])
-
+  #  bar_chart = pygal.HorizontalBar()
+  #  bar_chart.title = 'Profitability'
+        with open('fileName.csv', 'w') as filewrite:
+            for infoItem in allItems:
+                if 'Glyph' in infoItem["name"] and infoItem["diff"] > 0:
+                  line = "{} {}".format(infoItem["name"],str(infoItem["diff"])
+                  print line
+          #filewrite.write(line)
+            # print(infoItem["name"] + "," + str(infoItem["diff"]))
+    #     bar_chart.add(infoItem["name"],  infoItem["diff"])
+    #print("done") 
     # bar_chart.render_in_browser()
-    bar_chart.render_to_file('bar_chart.svg')  
+    #bar_chart.render_to_file('bar_chart.svg')  
     #print(allItems)
     #df = pd.DataFrame.from_records(allItems)
     #df.plot()
