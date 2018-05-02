@@ -1,0 +1,175 @@
+[Starlight Ink] -223.39
+[Aqual Mark] -45.65
+[Straszan Mark] -616.57
+[Darkmoon Deck: Hellfire]815 12331.98
+[Darkmoon Deck: Hellfire]835 10203.24
+[Darkmoon Deck: Hellfire]850 2239.13
+[Darkmoon Deck: Promises]815 -8733.12
+[Darkmoon Deck: Promises]835 -9252.21
+[Darkmoon Deck: Dominion]850 -26933.88
+[Darkmoon Deck: Promises]850 -13872.22
+[Darkmoon Deck: Immortality]835 -19767.58
+[Darkmoon Deck: Immortality]850 -31635.11
+[Darkmoon Deck: Dominion]835 0.0
+[Darkmoon Deck: Dominion]815 0.0
+[Codex of the Clear Mind] 330.81
+[Codex of the Tranquil Mind] 165.41
+[Tome of the Clear Mind] -207.67
+[Tome of the Tranquil Mind] -6.3
+[Vantus Rune: Dragons of Nightmare] 1592.33
+[Vantus Rune: Elerethe Renferal] -0.03
+[Vantus Rune: Star Augur Etraeus] -880.41
+[Vantus Rune: Guarm] 664.22
+[Vantus Rune: Skorpyron] -140.73
+[Vantus Rune: Antorus, the Burning Throne] -43.08
+[Vantus Rune: Xavius] 71.29
+[Vantus Rune: Tichondrius] -332.3
+[Vantus Rune: Krosus] -181.93
+[Vantus Rune: Il'gynoth, The Heart of Corruption] 0.0
+[Vantus Rune: Nythendra] 0.0
+[Vantus Rune: Spellblade Aluriel] -188.55
+[Vantus Rune: Tomb of Sargeras] 141.35
+[Vantus Rune: High Botanist Tel'arn] -39.2
+[Vantus Rune: Helya] 83.83
+[Vantus Rune: Chronomatic Anomaly] -1289.51
+[Vantus Rune: Trilliax] -158.91
+[Vantus Rune: Cenarius] 0.0
+[Vantus Rune: Ursoc] 0.0
+[Vantus Rune: Gul'dan] 10.54
+[Vantus Rune: Grand Magistrix Elisande] 0.0
+[Vantus Rune: Odyn] 0.15
+[Songs of Peace] 3129.34
+[Songs of the Legion] 4326.08
+[Songs of the Alliance] 469.59
+[Songs of the Horde] -1427.29
+[Songs of Battle] 309.82
+[Unwritten Legend] 430.76
+[Steamy Romance Novel Kit] -674.87
+[Scroll of Forgotten Knowledge] 37.44
+[Glyph of the Shadow Succubus] 6266.94
+[Glyph of Dark Absolution] 2426.68
+[Glyph of Fel-Touched Shards] -2972.62
+[Glyph of the Observer] -1584.23
+[Glyph of Crackling Ox Lightning] 6872.47
+[Glyph of Polymorphic Proportions] 3391.91
+[Glyph of the Chilled Shell] 3945.01
+[Glyph of Flickering] -630.17
+[Glyph of the Voidlord] 3111.19
+[Glyph of Burnout] -714.29
+[Glyph of Ghostly Fade] 6544.39
+[Glyph of the Forest Path] 1988.97
+[Glyph of the Spectral Raptor] 6578.05
+[Glyph of Autumnal Bloom] 6422.85
+[Glyph of Flash Bang] 1794.73
+[Glyph of Nesingwary's Nemeses] 945.92
+[Glyph of Floating Shards] 1090.05
+[Glyph of the Headhunter] -1043.95
+[Glyph of the Trusted Steed] -2531.38
+[Glyph of the Skullseye] 968.4
+[Glyph of the Doe] -1459.65
+[Glyph of Fel Wings] 2933.15
+[Glyph of Sparkles] 3712.97
+[Glyph of Angels] 603.23
+[Glyph of the Goblin Anti-Grav Flare] 181.9
+[Glyph of Critterhex] 137.1
+[Glyph of Twilight Bloom] -2682.76
+[Glyph of the Bullseye] 2967.17
+[Glyph of Shadow-Enemies] 321.22
+[Glyph of the Voidling] -295.48
+[Glyph of Ember Shards] -1411.53
+[Glyph of the Lightspawn] 87.06
+[Glyph of Fel-Enemies] 1914.82
+[Glyph of the Feral Chameleon] 1247.17
+[Glyph of Wrathguard] 474.57
+[Glyph of Pebbles] -66.13
+[Glyph of the Unholy Wraith] -695.61
+[Glyph of Tattered Wings] -401.17
+[Glyph of the Luminous Charger] -5.62
+[Glyph of Stellar Flare] 531.86
+[Glyph of Cracked Ice] 181.1
+[Glyph of Fel Touched Souls] 307.54
+[Glyph of the Blood Wraith] -1238.16
+[Glyph of the Crimson Shell] -84.81
+[Glyph of the Hook] -272.65
+[Glyph of Fallow Wings] -21.36
+[Glyph of the Trident] 250.01
+[Glyph of Shadow] 67.35
+[Glyph of the Wraith Walker] -121.64
+[Glyph of the Blazing Savior] -255.13
+[Glyph of the Sentinel] -538.82
+[Glyph of Smolder] -488.51
+[Glyph of Mana Touched Souls] -532.02
+[Glyph of Crackling Crane Lightning] -384.34
+[Glyph of the Inquisitor's Eye] -699.63
+[Glyph of Blackout] -465.58
+[Glyph of Crackling Flames] -225.9
+[Glyph of Fel Imp] -409.21
+[Glyph of Gushing Wound] 329.3
+[Glyph of the Queen] -202.96
+[Glyph of the Blazing Trail] -40.44
+[Glyph of the Shivarra] -258.03
+[Glyph of Stars] 216.84
+[Glyph of Shadowy Friends] 40.79
+[Glyph of Yu'lon's Grace] -194.86
+[Glyph of the Dire Stable] -517.75
+[Glyph of Fire From the Heavens] 30.96
+[Glyph of the Cheetah] 111.53
+[Glyph of Falling Thunder] -456.38
+[Glyph of Arachnophobia] -517.88
+[Glyph of the Spectral Wolf] -13.63
+[Glyph of Hawk Feast] -20.4
+[Glyph of the Orca] -34.05
+[Glyph of Crackling Tiger Lightning] 19.55
+[Glyph of Lingering Ancestors] -11.3
+[Glyph of Winged Vengeance] 19.48
+[Glyph of Burning Anger] 89.66
+[Glyph of Soulwell] -35.63
+[Glyph of Disguise] -24.17
+[Glyph of the Ursol Chameleon] -12.49
+[Glyph of Foul Menagerie] 56.4
+[Glyph of Evaporation] 62.61
+[Glyph of the Unbound Elemental] -6.84
+[Glyph of Crimson Banish] -5.07
+[Glyph of Thunder Strike] 11.62
+[Glyph of the Heavens] -4.15
+[Glyph of the Sun] -6.27
+[Glyph of Mighty Victory] -5.73
+[Glyph of Crittermorph] -15.81
+[Glyph of the Weaponmaster] 36.86
+[Glyph of the Sha] 6.46
+[Glyph of the Skeleton] -18.54
+[Glyph of Rising Tiger Kick] -96.03
+[Glyph of Fighting Pose] -3.22
+[Glyph of Honor] 5.99
+[Glyph of Felguard] -19.49
+[Glyph of Deluge] -3.51
+[Glyph of Pillar of Light] -2.64
+[Glyph of Lesser Proportion] -20.99
+[Glyph of Inspired Hymns] -3.9
+[Glyph of Spirit Raptors] -49.16
+[Glyph of the Val'kyr] 2.09
+[Glyph of Shackle Undead] 5.05
+[Glyph of the Geist] -12.53
+[Moonglow Ink] 14.3
+[Sallow Pigment] 12.19
+[Ink of the Sea] -30.34
+[Shimmering Ink] 6.75
+[Ethereal Ink] 7.89
+[Jadefire Ink] 5.26
+[Blackfallow Ink] -2.83
+[Celestial Ink] -68.76
+[Ink of Dreams] 3.42
+[Roseate Pigment] 3.26
+[Midnight Ink] -3.83
+[Warbinder's Ink] 1.85
+[Lion's Ink] -14.34
+[Cerulean Pigment] -1.36
+[Fiery Ink] 1.84
+[Volatile Crystal] 20.23
+[Dawnstar Ink] 2.61
+[Snowfall Ink] -0.26
+[Royal Ink] -1.66
+[Ink of the Sky] -101.72
+[Hunter's Ink] 0.0
+[Darkflame Ink] -6.25
+[Starlight Ink] -223.39

@@ -39,15 +39,12 @@ def fetch_tuj_category(category):
                     info = {"name" : tdcells[1].text, "available" : tdcells[2].text, "current" : tdcells[3].text, "mean" : tdcells[4].text,"lastseen" : tdcells[5].text,"move" : "DOWN","diff" : diff}
                     allItems.append(info)
 
-    for itemInfo in allItems:
-        print(itemInfo)
-    #for infoItem in allItems:
-      #print("{} {}".format(infoItem["name"],infoItem["diff"])
-     #if 'Glyph' in infoItem["name"] and infoItem["diff"] > 0:
-     #  line = "{} {}".format(infoItem["name"],str(infoItem["diff"])
-      # file_w = open('fileName.csv', 'a')
-      # file_w.write(line)
-      # file_w.close()
+    #with open("Output.txt", "w") as text_file:
+    #text_file.write("Purchase Amount: %s" % TotalAmount)
+    for infoItem in allItems:
+      line = "{} {}".format(infoItem["name"], str(infoItem["diff"]))
+      with open("Output.txt", "a") as text_file:
+        text_file.write("\n{}".format(line))
 
 if __name__ == '__main__':
     fetch_tuj_data()
