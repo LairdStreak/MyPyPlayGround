@@ -2,6 +2,7 @@
 # -*- coding: utf8 -*-
 from selenium import webdriver
 import __future__
+import os
 from bs4 import BeautifulSoup
 
 __author__ = "Laird Streak"
@@ -23,6 +24,9 @@ def fetch_tuj_category(category):
             tdcells = row.find_all("td")
             lengthArray = len(tdcells)
             if lengthArray > 0:
+                strName = tdcells[1].text
+                strName = strName.replace("[","")
+                strName = strName.replace("]","")
                 current = tdcells[3].text
                 mean = current if tdcells[4].text == "" else tdcells[4].text
                 diff = 1
@@ -30,21 +34,26 @@ def fetch_tuj_category(category):
                     if mean is not None:
                         diff = float(current) - float(mean)
                 if diff > 0:
-                    info = {"name" : tdcells[1].text, "available" : tdcells[2].text, "current" : tdcells[3].text, "mean" : tdcells[4].text,"lastseen" : tdcells[5].text,"move" : "UP","diff" : diff}
+                    info = {"name" : strName, "available" : tdcells[2].text, "current" : tdcells[3].text, "mean" : tdcells[4].text,"lastseen" : tdcells[5].text,"move" : "UP","diff" : diff}
                     allItems.append(info)
                 elif diff == 0:
-                    info = {"name" : tdcells[1].text, "available" : tdcells[2].text, "current" : tdcells[3].text, "mean" : tdcells[4].text,"lastseen" : tdcells[5].text,"move" : "Unknown","diff" : diff}
+                    info = {"name" : strName, "available" : tdcells[2].text, "current" : tdcells[3].text, "mean" : tdcells[4].text,"lastseen" : tdcells[5].text,"move" : "Unknown","diff" : diff}
                     allItems.append(info)
                 else:
-                    info = {"name" : tdcells[1].text, "available" : tdcells[2].text, "current" : tdcells[3].text, "mean" : tdcells[4].text,"lastseen" : tdcells[5].text,"move" : "DOWN","diff" : diff}
+                    info = {"name" : strName, "available" : tdcells[2].text, "current" : tdcells[3].text, "mean" : tdcells[4].text,"lastseen" : tdcells[5].text,"move" : "DOWN","diff" : diff}
                     allItems.append(info)
+    try:
+      os.remove("Output.csv")
+    except OSError:
+      pass
 
-    #with open("Output.txt", "w") as text_file:
-    #text_file.write("Purchase Amount: %s" % TotalAmount)
     for infoItem in allItems:
-      line = "{} {}".format(infoItem["name"], str(infoItem["diff"]))
-      with open("Output.txt", "a") as text_file:
-        text_file.write("\n{}".format(line))
+        if "Glyph" in infoItem["name"]:
+          line = "{},{},{}".format(infoItem["name"], str(infoItem["diff"]), str(infoItem["mean"]))
+          with open("Output.csv", "a") as text_file:
+            text_file.write("{}\n".format(line))
+
+    print('Done')
 
 if __name__ == '__main__':
     fetch_tuj_data()

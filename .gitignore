@@ -102,3 +102,4 @@ ENV/
 wowauctions/.idea/vcs.xml
 wowauctions/.idea/workspace.xml
 wowauctions/.idea/wowauctions.iml
+/tujData/*.csv
