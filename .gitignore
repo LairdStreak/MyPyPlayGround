@@ -99,3 +99,6 @@ ENV/
 
 # mypy
 .mypy_cache/
+wowauctions/.idea/vcs.xml
+wowauctions/.idea/workspace.xml
+wowauctions/.idea/wowauctions.iml

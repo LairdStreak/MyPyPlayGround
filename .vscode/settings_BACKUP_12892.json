@@ -1,0 +1,8 @@
+{
+<<<<<<< HEAD
+    "python.linting.enabled": false,
+    "python.pythonPath": "C:\\Python27\\python.exe"
+=======
+    "python.linting.enabled": false
+>>>>>>> f625187e0d4fdb1f74059b386d5d5d4f779fb65a
+}

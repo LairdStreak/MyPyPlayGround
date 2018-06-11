@@ -7,8 +7,8 @@ app = Flask(__name__)
 print(__name__)
 
 @app.route('/')
-def hello_world():
-    return 'Hello, World!'
+def default_route():
+    return render_template('default.html')
 
 @app.route('/index')
 def index():
@@ -24,4 +24,4 @@ def raw():
     return app.send_static_file("hello.htm")
 
 Debug(app)
-app.run(debug=True)
+app.run(port=1000)
