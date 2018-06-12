@@ -23,5 +23,5 @@ def template(name=None):
 def raw():
     return app.send_static_file("hello.htm")
 
-Debug(app)
+# Debug(app)
 app.run(port=1000)
