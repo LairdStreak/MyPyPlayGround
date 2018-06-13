@@ -1,0 +1,11 @@
+E:\Laird\GHUB\MyPyPlayGround\SQLiteConnector\SQLiteConnector\bin\Debug\netcoreapp2.0\SQLiteConnector.deps.json
+E:\Laird\GHUB\MyPyPlayGround\SQLiteConnector\SQLiteConnector\bin\Debug\netcoreapp2.0\SQLiteConnector.runtimeconfig.json
+E:\Laird\GHUB\MyPyPlayGround\SQLiteConnector\SQLiteConnector\bin\Debug\netcoreapp2.0\SQLiteConnector.runtimeconfig.dev.json
+E:\Laird\GHUB\MyPyPlayGround\SQLiteConnector\SQLiteConnector\bin\Debug\netcoreapp2.0\SQLiteConnector.dll
+E:\Laird\GHUB\MyPyPlayGround\SQLiteConnector\SQLiteConnector\obj\Debug\netcoreapp2.0\SQLiteConnector.csprojAssemblyReference.cache
+E:\Laird\GHUB\MyPyPlayGround\SQLiteConnector\SQLiteConnector\obj\Debug\netcoreapp2.0\SQLiteConnector.csproj.CoreCompileInputs.cache
+E:\Laird\GHUB\MyPyPlayGround\SQLiteConnector\SQLiteConnector\obj\Debug\netcoreapp2.0\SQLiteConnector.AssemblyInfoInputs.cache
+E:\Laird\GHUB\MyPyPlayGround\SQLiteConnector\SQLiteConnector\obj\Debug\netcoreapp2.0\SQLiteConnector.AssemblyInfo.cs
+E:\Laird\GHUB\MyPyPlayGround\SQLiteConnector\SQLiteConnector\bin\Debug\netcoreapp2.0\SQLiteConnector.pdb
+E:\Laird\GHUB\MyPyPlayGround\SQLiteConnector\SQLiteConnector\obj\Debug\netcoreapp2.0\SQLiteConnector.dll
+E:\Laird\GHUB\MyPyPlayGround\SQLiteConnector\SQLiteConnector\obj\Debug\netcoreapp2.0\SQLiteConnector.pdb
