@@ -1,5 +1,6 @@
 from flask import Flask
 from flask import render_template
+from flask import json, request
 from flask_debug import Debug
 
 app = Flask(__name__)
@@ -23,5 +24,14 @@ def template(name=None):
 def raw():
     return app.send_static_file("hello.htm")
 
+@app.route('/messages', methods = ['POST'])
+def api_message():
+
+    if request.headers['Content-Type'] == 'text/plain':
+        return "Text Message: " + request.data
+
+    elif request.headers['Content-Type'] == 'application/json':
+        return "JSON Message: " + json.dumps(request.json)    
+
 # Debug(app)
-app.run(port=1000)
+app.run(port=1000, debug=True)
