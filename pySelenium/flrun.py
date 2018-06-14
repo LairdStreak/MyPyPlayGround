@@ -1,7 +1,7 @@
 from flask import Flask
 from flask import render_template
 from flask import json, request
-from flask_debug import Debug
+from flask_debugtoolbar import DebugToolbarExtension
 
 app = Flask(__name__)
 
@@ -24,14 +24,24 @@ def template(name=None):
 def raw():
     return app.send_static_file("hello.htm")
 
-@app.route('/messages', methods = ['POST'])
+@app.errorhandler(404)
+def page_not_found(_error):
+    """Returns the default error page if there's a page not found error"""
+    return render_template('error.html'), 404    
+
+@app.route('/messages', methods = ['POST','GET'])
 def api_message():
+    if  request.method == 'POST':
+        if request.headers['Content-Type'] == 'text/plain':
+            return "Text Message: " + request.data
 
-    if request.headers['Content-Type'] == 'text/plain':
-        return "Text Message: " + request.data
+        elif request.headers['Content-Type'] == 'application/json':
+            return "JSON Message: " + json.dumps(request.json)    
+    else:
+        return "her5e"        
 
-    elif request.headers['Content-Type'] == 'application/json':
-        return "JSON Message: " + json.dumps(request.json)    
-
+app.debug = True
+app.config['SECRET_KEY'] = '338ee998-7b72-4a3b-8df6-48c076b171b5'
+toolbar = DebugToolbarExtension(app)
 # Debug(app)
-app.run(port=1000, debug=True)
+app.run(port=1000)
