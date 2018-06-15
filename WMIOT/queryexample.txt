@@ -1,0 +1,1 @@
+insert into dht11data(Temperature,Humidity,Inserted) Values (17,43,NOW());
