@@ -1,0 +1,45 @@
+from flask import Flask
+from flask import render_template
+from flask import json, request, jsonify
+from flask_debugtoolbar import DebugToolbarExtension
+
+app = Flask(__name__)
+
+print(__name__)
+
+@app.route('/')
+@app.route('/index')
+def default_route():
+    return render_template('default.html')
+
+@app.route('/template')
+@app.route('/template/<name>')
+def template(name=None):
+    return render_template('template.html', name=name)
+
+@app.errorhandler(404)
+def page_not_found(_error):
+    """Returns the default error page if there's a page not found error"""
+    return render_template('error.html'), 404
+
+@app.route('/messages', methods = ['POST','GET'])
+def api_message():
+    if request.method == 'POST':
+        if request.headers['Content-Type'] == 'text/plain':
+            return "Text Message: " + request.data
+
+        elif request.headers['Content-Type'] == 'application/json':
+            return "JSON Message: " + json.dumps(request.json)
+    else:
+        return "her5e"
+
+@app.route('/getdata/<int:count>', methods = ['GET'])
+def get_data(count=None):
+    counter = count + 1
+    return jsonify(count = counter)
+
+app.debug = True
+app.config['SECRET_KEY'] = '338ee998-7b72-4a3b-8df6-48c076b171b5'
+toolbar = DebugToolbarExtension(app)
+# Debug(app)
+app.run(port=1000)

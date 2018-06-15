@@ -1,0 +1,67 @@
+{% extends 'static_layout.html' %}
+{% block body %}
+<div class="container">
+      <div class="jumbotron">
+        <h1>WEMOS DATA</h1>
+      </div>
+
+      <div class="row marketing">
+        <div class="col-lg-6">
+          <h4>Bucket List</h4>
+          <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
+
+          <h4>Bucket List</h4>
+          <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
+
+          <h4>Bucket List</h4>
+          <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+        </div>
+
+        <div class="col-lg-6">
+          <h4>Bucket List</h4>
+          <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
+
+          <h4>Bucket List</h4>
+          <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
+
+          <h4>Bucket List</h4>
+          <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+        </div>
+      </div>
+
+      <footer class="footer">
+        <p>&copy; Laird Streak  2018</p>
+      </footer>
+
+    </div>
+{% endblock %}
+{% block data %}
+<script src="{{ url_for('static', filename='js/jquery.knob.min.js') }}"></script>
+<div class="col-lg-6" align="middle">
+    <input type="text" value="0" class="dial" data-skin="tron">
+</div>
+<script>
+    $(function() {
+        $(".dial").knob();
+        //$('.dial').val(27).trigger('change');
+    });
+
+
+setInterval(refresh_dial,1000);
+
+function refresh_dial(){
+    var current = $('.dial').val();
+    if(current > 50)
+    {
+       current = 0;
+    }
+    var path = '/getdata/' + current
+   // debugger;
+   $.ajax(path).done(function(data) {
+    $('.dial').val(data.count).trigger('change');
+}).fail(function(data){
+  alert("Try again champ!");
+});
+}
+</script>
+{% endblock %}
