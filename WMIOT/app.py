@@ -1,7 +1,9 @@
 from flask import Flask
-from flask import render_template
 from flask import json, request, jsonify
+from flask import render_template
 from flask_debugtoolbar import DebugToolbarExtension
+from decimal import Decimal
+import wmiotdata
 
 app = Flask(__name__)
 
@@ -33,13 +35,33 @@ def api_message():
     else:
         return "her5e"
 
-@app.route('/getdata/<int:count>', methods = ['GET'])
-def get_data(count=None):
-    counter = count + 1
-    return jsonify(count = counter)
+@app.route('/data/', methods = ['POST'])
+def api_data():
+    if request.headers['Content-Type'] == 'application/json':
+        try:
+            data = request.json
+            print(data)
+            python_obj = json.loads(data)
+            print(type(python_obj))
+            temperature = python_obj['temp']
+            humidity = python_obj['humid']
+            print(temperature)
+            print(humidity)
+            wmiotdata.put_latestdata(temperature, humidity)
+            return json.dumps({'success': True}), 200, {'ContentType': 'application/json'}
+        except Exception as e:
+            message = str(e)
+            print(message)
+    else:
+       return json.dumps({'success': False}), 400, {'ContentType': 'application/json'}
+
+@app.route('/getdata/', methods = ['GET'])
+def get_data():
+    data = wmiotdata.fetch_latestdata()
+    return jsonify(data)
 
 app.debug = True
 app.config['SECRET_KEY'] = '338ee998-7b72-4a3b-8df6-48c076b171b5'
 toolbar = DebugToolbarExtension(app)
 # Debug(app)
-app.run(port=1000)
+app.run(host='0.0.0.0', port=1000)
