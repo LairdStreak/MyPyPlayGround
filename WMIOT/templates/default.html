@@ -37,8 +37,7 @@ setInterval(refresh_dial,30000);
 
 function refresh_dial(){
     var path = '/getdata/'
-   // debugger;
-   $.ajax(path).done(function(data) {
+    $.ajax(path).done(function(data) {
     $('.dial').val(data.Temperature).trigger('change');
     $('.dial2').val(data.Humidity).trigger('change');
     tnow = new Date().toString();

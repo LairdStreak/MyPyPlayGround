@@ -2,11 +2,15 @@ from flask import Flask
 from flask import json, request, jsonify
 from flask import render_template
 from flask_debugtoolbar import DebugToolbarExtension
+from flask_autoindex import AutoIndex
+import flask_silk
 from decimal import Decimal
+import os.path
 import wmiotdata
 
-app = Flask(__name__)
 
+app = Flask(__name__)
+AutoIndex(app, browse_root=os.path.curdir)
 print(__name__)
 
 @app.route('/')
