@@ -1,16 +1,13 @@
 from flask import Flask
 from flask import json, request, jsonify
-from flask import render_template
+from flask import render_template, send_file
 from flask_debugtoolbar import DebugToolbarExtension
-from flask_autoindex import AutoIndex
-import flask_silk
-from decimal import Decimal
 import os.path
 import wmiotdata
+import plotwmiotdata as plt
 
 
 app = Flask(__name__)
-AutoIndex(app, browse_root=os.path.curdir)
 print(__name__)
 
 @app.route('/')
@@ -63,6 +60,13 @@ def api_data():
 def get_data():
     data = wmiotdata.fetch_latestdata()
     return jsonify(data)
+
+
+@app.route('/temperatureplot', methods = ['GET'])
+def get_temperatureplot():
+    data = wmiotdata.fetch_temperature_for_last_day()
+    img = plt.plot_dataframe(data)
+    return send_file(img, mimetype='image/png')
 
 app.debug = True
 app.config['SECRET_KEY'] = '338ee998-7b72-4a3b-8df6-48c076b171b5'
