@@ -56,3 +56,8 @@ def put_latestdata(temerature,humidity):
         cnx.commit()
     except:
         cnx.rollback()
+
+
+if __name__ == '__main__':
+    res = fetch_latestdata()
+    print(res)     
