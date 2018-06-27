@@ -2,7 +2,7 @@ import mysql.connector
 import pandas
 
 def fetch_latestdata():
-    cnx = mysql.connector.connect(user='wimosdata', password='wimosdata', host='127.0.0.1',
+    cnx = mysql.connector.connect(user='wimosdata', password='wimosdata', host='reaperconz.ddns.net',
                                   database='wimosdata')
     cursor = cnx.cursor()
 
@@ -19,7 +19,7 @@ def fetch_latestdata():
 
 
 def fetch_temperature_for_last_day():
-    cnx = mysql.connector.connect(user='wimosdata', password='wimosdata', host='127.0.0.1',
+    cnx = mysql.connector.connect(user='wimosdata', password='wimosdata', host='reaperconz.ddns.net',
                                   database='wimosdata')
     cursor = cnx.cursor()
 
@@ -33,7 +33,7 @@ def fetch_temperature_for_last_day():
 
 
 def fetch_humidity_for_last_day():
-    cnx = mysql.connector.connect(user='wimosdata', password='wimosdata', host='127.0.0.1',
+    cnx = mysql.connector.connect(user='wimosdata', password='wimosdata', host='reaperconz.ddns.net',
                                   database='wimosdata')
     cursor = cnx.cursor()
 
@@ -46,7 +46,7 @@ def fetch_humidity_for_last_day():
     return pandas.DataFrame(rows, columns=names)
 
 def put_latestdata(temerature,humidity):
-    cnx = mysql.connector.connect(user='wimosdata', password='wimosdata', host='127.0.0.1',
+    cnx = mysql.connector.connect(user='wimosdata', password='wimosdata', host='reaperconz.ddns.net',
                                   database='wimosdata')
     cursor = cnx.cursor()
 
