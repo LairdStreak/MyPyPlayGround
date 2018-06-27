@@ -62,7 +62,7 @@ def get_data():
     return jsonify(data)
 
 
-@app.route('/temperatureplot', methods = ['GET'])
+@app.route('/temperatureplot.png', methods = ['GET'])
 def get_temperatureplot():
     data = wmiotdata.fetch_temperature_for_last_day()
     img = plt.plot_dataframe(data)

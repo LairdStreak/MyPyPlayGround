@@ -23,7 +23,7 @@ def fetch_temperature_for_last_day():
                                   database='wimosdata')
     cursor = cnx.cursor()
 
-    query = ("SELECT Temperature, Inserted FROM dht11data WHERE Inserted = curdate();")
+    query = ("SELECT Temperature, Inserted FROM dht11data;") # WHERE Inserted = curdate();")
     cursor.execute(query)
     names = [x[0] for x in cursor.description]
     rows = cursor.fetchall()
