@@ -61,13 +61,6 @@ def get_data():
     data = wmiotdata.fetch_latestdata()
     return jsonify(data)
 
-
-@app.route('/temperatureplot.png', methods = ['GET'])
-def get_temperatureplot():
-    data = wmiotdata.fetch_temperature_for_last_day()
-    img = plt.plot_dataframe(data)
-    return send_file(img, mimetype='image/png')
-
 app.debug = True
 app.config['SECRET_KEY'] = '338ee998-7b72-4a3b-8df6-48c076b171b5'
 toolbar = DebugToolbarExtension(app)
