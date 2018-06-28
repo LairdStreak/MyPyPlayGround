@@ -2,8 +2,7 @@ import mysql.connector
 import pandas
 
 def fetch_latestdata():
-    cnx = mysql.connector.connect(user='wimosdata', password='wimosdata', host='reaperconz.ddns.net',
-                                  database='wimosdata')
+    
     cursor = cnx.cursor()
 
     query = ("SELECT Temperature, Humidity FROM dht11data ORDER BY Inserted DESC Limit 1;")
@@ -19,8 +18,7 @@ def fetch_latestdata():
 
 
 def fetch_temperature_for_last_day():
-    cnx = mysql.connector.connect(user='wimosdata', password='wimosdata', host='reaperconz.ddns.net',
-                                  database='wimosdata')
+    
     cursor = cnx.cursor()
 
     query = ("SELECT Temperature, Inserted FROM dht11data;") # WHERE Inserted = curdate();")
@@ -33,8 +31,7 @@ def fetch_temperature_for_last_day():
 
 
 def fetch_humidity_for_last_day():
-    cnx = mysql.connector.connect(user='wimosdata', password='wimosdata', host='reaperconz.ddns.net',
-                                  database='wimosdata')
+    
     cursor = cnx.cursor()
 
     query = ("SELECT Humidity, Inserted FROM dht11data WHERE Inserted = curdate();")
@@ -46,8 +43,7 @@ def fetch_humidity_for_last_day():
     return pandas.DataFrame(rows, columns=names)
 
 def put_latestdata(temerature,humidity):
-    cnx = mysql.connector.connect(user='wimosdata', password='wimosdata', host='reaperconz.ddns.net',
-                                  database='wimosdata')
+    
     cursor = cnx.cursor()
 
     try:
