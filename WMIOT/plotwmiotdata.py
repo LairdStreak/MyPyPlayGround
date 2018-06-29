@@ -8,6 +8,7 @@ import time
 from PIL import Image
 import wmiotdata
 import pandas as pd
+import base64
 
 def plot_dataframe(DataFrame):
     DataFrame['Inserted'] = pd.to_datetime(DataFrame['Inserted'], format='%Y-%m-%d %H:%M:%S.%f')
@@ -20,16 +21,7 @@ def plot_dataframe(DataFrame):
     ax.xaxis.set_major_locator(mdates.HourLocator())
     # set major ticks format
     ax.xaxis.set_major_formatter(mdates.DateFormatter('%b %d'))
-
-    #buf = BytesIO()
-    #fig.savefig(buf, format='png')
-    #buf.seek(0)
-    #im = Image.open(buf)
-    #im.show()
-    #plt.show()
-    #time.sleep(10)
-    #return im
-    plt.savefig("E:\dev\MyPyPlayGround\WMIOT\chart.png")
+    plt.savefig("E:\dev\MyPyPlayGround\WMIOT\static\chart.png")
 
 if __name__ == '__main__':
     data = wmiotdata.fetch_temperature_for_last_day()

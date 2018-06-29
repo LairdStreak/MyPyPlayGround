@@ -1,8 +1,6 @@
 from flask import Flask
 from flask import json, request, jsonify
 from flask import render_template, send_file
-from flask_debugtoolbar import DebugToolbarExtension
-import os.path
 import wmiotdata
 import plotwmiotdata as plt
 
@@ -56,13 +54,16 @@ def api_data():
     else:
        return json.dumps({'success': False}), 400, {'ContentType': 'application/json'}
 
+
 @app.route('/getdata/', methods = ['GET'])
 def get_data():
     data = wmiotdata.fetch_latestdata()
+    #chartData = wmiotdata.fetch_temperature_for_last_day()
+    #plt.plot_dataframe(chartData)
     return jsonify(data)
 
 app.debug = True
 app.config['SECRET_KEY'] = '338ee998-7b72-4a3b-8df6-48c076b171b5'
-toolbar = DebugToolbarExtension(app)
+#toolbar = DebugToolbarExtension(app)
 # Debug(app)
 app.run(host='0.0.0.0', port=1000)

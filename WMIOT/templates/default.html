@@ -20,12 +20,14 @@
 <div class="col-lg-3" align="middle">
     <input type="text" value="0" class="dial" data-skin="tron">
 </div>
+<img src="{{ url_for('static', filename='chart.png') }}" alt="" />
 <div class="col-lg-3" align="middle">
     <input type="text" value="0" class="dial2" data-skin="tron">
 </div>
 <div>
     <span id="dialog_title_span">'+dialog_title+'</span>
 </div>
+<div id="theDiv"></div>
 <script>
     $(function() {
         $(".dial").knob();
@@ -33,7 +35,7 @@
     });
 
 
-setInterval(refresh_dial,30000);
+setInterval(refresh_dial,1000);
 
 function refresh_dial(){
     var path = '/getdata/'
@@ -46,7 +48,5 @@ function refresh_dial(){
   $('#dialog_title_span').text("Error");
 });
 }
-
-<img src="/temperatureplot.png" alt="Image" />
 </script>
 {% endblock %}
