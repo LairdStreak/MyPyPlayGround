@@ -1,3 +1,0 @@
-matplotlib==2.0.1
-tweepy==3.5.0
-pandas==0.20.0

@@ -1,6 +1,0 @@
-import json,csv
-badids=[c['contactid'] for c in json.load(open("/tmp/toonewusers.json"))]
-badusers=[row for row in csv.DictReader(open("/media/sf_vm.shared/users-prd.csv")) if row['unmatcheddynamicsid'] in badids or row['dynamicsid'] in badids]
-writer = csv.DictWriter(open('/media/sf_vm.shared/badusers-prd.csv','w'), fieldnames=badusers[0].keys())
-writer.writeheader()
-writer.writerows(badusers)
