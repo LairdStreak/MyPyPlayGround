@@ -26,8 +26,6 @@ def tuj_front_page():
 
 
 def main():
-    #responseData = fetch_data("https://www.pythonforbeginners.com/python-on-the-web/web-scraping-with-beautifulsoup")
-    #print(responseData)
     tuj_front_page()
 
 if __name__ == '__main__':
