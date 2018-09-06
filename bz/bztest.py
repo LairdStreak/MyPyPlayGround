@@ -21,25 +21,21 @@ def main():
 
     df = pd.DataFrame.from_records(list)   
     df = df[df['Level'] > 115]
-    #df.set_index('Name')
-    #df.plot.bar()
 
-    #plt.show()
-    #print("done")
+    df.set_index('Name')
+    
+    labels = df.index.values
+    values = df['Level']
+    fig1, ax1 = plt.subplots()
+    ax1.pie(values, labels = labels)
+    ax1.axis('equal')
+    plt.show()
+
+
     writer = pd.ExcelWriter('simple-report.xlsx', engine='xlsxwriter')
     df.to_excel(writer, index=False)
     writer.save()
-        
-    #for item in list:
-    #    print(f"{item['Name']} - {item['Level']}")
-
-
-    #for char in guild_profile['members']:
-    #    print(f"{char['character']['name']} - {char['character']['level']}")
-        # print(char['character']['level'])
-    #util.print_response_object(guild_profile)
-
-
+    print("Done")
 
 if __name__ == '__main__':
     main()
