@@ -6,15 +6,11 @@ from pyblizzard.wow.enum.characterprofilefield import CharacterProfileField
 from pyblizzard.wow.enum.pvpbracket import PvpBracket
 import pandas as pd
 import xlsxwriter
+import matplotlib.pyplot as plt
 
 def main():
     pybz = PyBlizzard("gfyjawteeb4wbzke674wbwzyjbpcahjv", Region.US, Locale.US)
-    # CHARACTER PROFILE
-    # print('Getting character profile...')
-    # character_profile = pybz.wow.get_character_profile("khazgoroth", "Gnomeifix", CharacterProfileField.TALENTS, CharacterProfileField.ITEMS)
-    # util.print_response_object(character_profile)
-
-
+    
      # GUILD PROFILE
     print('Getting guild profile...')
     guild_profile = pybz.wow.get_guild_profile("dathremar", "WhiteHand")
@@ -23,7 +19,13 @@ def main():
     for index, row in data.iterrows():
         list.append({'Name' : row['character']['name'], 'Level' : row['character']['level']})
 
-    df = pd.DataFrame.from_records(list)    
+    df = pd.DataFrame.from_records(list)   
+    df = df[df['Level'] > 115]
+    #df.set_index('Name')
+    #df.plot.bar()
+
+    #plt.show()
+    #print("done")
     writer = pd.ExcelWriter('simple-report.xlsx', engine='xlsxwriter')
     df.to_excel(writer, index=False)
     writer.save()
