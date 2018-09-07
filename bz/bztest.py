@@ -40,6 +40,8 @@ def main():
     writer = pd.ExcelWriter('simple-report.xlsx', engine='xlsxwriter')
     df.to_excel(writer, index=False)
     writer.save()
+    output = df.to_html()
+    print(output)
     print("Done")
 
 if __name__ == '__main__':
