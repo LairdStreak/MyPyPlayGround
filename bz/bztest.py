@@ -7,6 +7,7 @@ from pyblizzard.wow.enum.pvpbracket import PvpBracket
 import pandas as pd
 import xlsxwriter
 import matplotlib.pyplot as plt
+import time
 
 
 
@@ -21,7 +22,7 @@ def GetWoWClasses(pybz):
     return pyb_classes    
 
 def main():
-    pybz = PyBlizzard("gfyjawteeb4wbzke674wbwzyjbpcahjv", Region.US, Locale.US)
+    pybz = PyBlizzard("", Region.US, Locale.US)
     toon_races = pd.DataFrame(GetWoWRaces(pybz))
     toon_classes = pd.DataFrame(GetWoWClasses(pybz))
      # GUILD PROFILE
@@ -34,7 +35,7 @@ def main():
         classint = row['character']['class']
         race = [i for i in toon_races.races if i['id'] == raceint][0]['name']
         toonclass = [i for i in toon_classes.classes if i['id'] == classint][0]['name']
-        list.append({'Name' : row['character']['name'], 'Level' : row['character']['level'], 'Race' : race, 'Class' : toonclass})
+        list.append({'Name' : row['character']['name'], 'Level' : row['character']['level'], 'Race' : race, 'Class' : toonclass, 'achievementPoints' : row['character']['achievementPoints']})
 
     df = pd.DataFrame.from_records(list)  
     writer = pd.ExcelWriter('simple-report.xlsx', engine='xlsxwriter')
