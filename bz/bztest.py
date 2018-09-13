@@ -38,11 +38,16 @@ def main():
         list.append({'Name' : row['character']['name'], 'Level' : row['character']['level'], 'Race' : race, 'Class' : toonclass, 'achievementPoints' : row['character']['achievementPoints']})
 
     df = pd.DataFrame.from_records(list)  
+    dfgraph = df[df['Level'] > 110] #.head(10)
+
+    dfgraph.plot(x='Name', y='Level', kind='barh', figsize=(10,7), title='User By Level')
+    plt.show()
+
     writer = pd.ExcelWriter('simple-report.xlsx', engine='xlsxwriter')
     df.to_excel(writer, index=False)
     writer.save()
-    output = df.to_html()
-    print(output)
+    # output = df.to_html()
+    # print(output)
     print("Done")
 
 if __name__ == '__main__':
