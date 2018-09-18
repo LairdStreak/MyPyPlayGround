@@ -22,7 +22,7 @@ def GetWoWClasses(pybz):
     return pyb_classes    
 
 def main():
-    pybz = PyBlizzard("", Region.US, Locale.US)
+    pybz = PyBlizzard("gfyjawteeb4wbzke674wbwzyjbpcahjv", Region.US, Locale.US)
     toon_races = pd.DataFrame(GetWoWRaces(pybz))
     toon_classes = pd.DataFrame(GetWoWClasses(pybz))
      # GUILD PROFILE
@@ -38,9 +38,9 @@ def main():
         list.append({'Name' : row['character']['name'], 'Level' : row['character']['level'], 'Race' : race, 'Class' : toonclass, 'achievementPoints' : row['character']['achievementPoints']})
 
     df = pd.DataFrame.from_records(list)  
-    dfgraph = df[df['Level'] > 110] #.head(10)
+    dfgraph = df[df['Level'] > 115] #.head(10)
 
-    dfgraph.plot(x='Name', y='Level', kind='barh', figsize=(10,7), title='User By Level')
+    dfgraph.plot(x='Name', y='Level', kind='barh', figsize=(20,14), title='User By Level')
     plt.show()
 
     writer = pd.ExcelWriter('simple-report.xlsx', engine='xlsxwriter')
