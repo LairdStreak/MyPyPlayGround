@@ -34,7 +34,7 @@ def main():
     toon_classes = pd.DataFrame(GetWoWClasses(pybz))
      # GUILD PROFILE
     print('Getting guild profile...')
-    guild_profile = pybz.wow.get_guild_profile("dathremar", "WhiteHand")
+    guild_profile = pybz.wow.get_guild_profile("barthilas", "oraya")
     data = pd.DataFrame(guild_profile['members'])
     list = []
     for index, row in data.iterrows():
@@ -42,8 +42,6 @@ def main():
         classint = row['character']['class']
         race = [i for i in toon_races.races if i['id'] == raceint][0]['name']
         toonclass = [i for i in toon_classes.classes if i['id'] == classint][0]['name']
-        #utc_time = datetime(1970,1,1) + timedelta(seconds=timestamp)
-        #lastModified = str(datetime(1970,1,1) + timedelta(seconds=row['character']['lastModified']))
         list.append({'Name' : row['character']['name'], 'Level' : row['character']['level'], 'Race' : race, 'Class' : toonclass, 'achievementPoints' : row['character']['achievementPoints']})
 
     df = pd.DataFrame.from_records(list)  
