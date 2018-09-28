@@ -8,7 +8,10 @@ import pandas as pd
 import xlsxwriter
 import matplotlib.pyplot as plt
 from datetime import datetime, timezone, timedelta
+import os
+from dotenv import load_dotenv
 
+load_dotenv()
 
 
 def GetAuc(pybz):
@@ -28,6 +31,7 @@ def GetWoWClasses(pybz):
     return pyb_classes    
 
 def main():
+    print(os.getenv("BZKEY"))
     pybz = PyBlizzard("gfyjawteeb4wbzke674wbwzyjbpcahjv", Region.US, Locale.US)
     # GetAuc(pybz)
     toon_races = pd.DataFrame(GetWoWRaces(pybz))
