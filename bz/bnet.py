@@ -16,7 +16,8 @@ def get_access_token():
 
 def get_guildnews(token):
     head = {'Authorization': 'Bearer {}'.format(token)}
-    guild_uri = "https://us.api.blizzard.com/data/wow/guild/dathremar/whiteHand/?fields=news"
+    guild_uri = "https://us.api.blizzard.com/wow/guild/dathremar/WhiteHand?fields=news"
+    # https://us.api.blizzard.com/wow/guild/realm-blah/guild-blah/?fields=news
     response = requests.get(guild_uri,headers=head)
     guild_data = response.json()
     print(guild_data)
