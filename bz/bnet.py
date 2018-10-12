@@ -14,6 +14,13 @@ def get_access_token():
     token_json = response.json()
     return token_json["access_token"]
 
+def get_guildnews(token):
+    head = {'Authorization': 'Bearer {}'.format(token)}
+    guild_uri = "https://us.api.blizzard.com/data/wow/guild/dathremar/whiteHand/?fields=news"
+    response = requests.get(guild_uri,headers=head)
+    guild_data = response.json()
+    print(guild_data)
+
 def get_token_price(token):
     head = {'Authorization': 'Bearer {}'.format(token)}
     tokenuri = 'https://us.api.blizzard.com/data/wow/token/?namespace=dynamic-us'
@@ -26,7 +33,8 @@ def get_token_price(token):
 
 def main():
     token = get_access_token()
-    get_token_price(token)
+    get_guildnews(token)
+    # get_token_price(token)
     # print(get_access_token())
 
 if __name__ == '__main__':
